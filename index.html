@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بداية جديدة | كتيب التغيير</title>
-    <!-- استيراد خط Tajawal الفخم من جوجل -->
+    <title>سين | كتاب ترك العادة</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #0f172a; /* كحلي داكن جداً وفخم */
-            --card-bg: #1e293b; /* خلفية الكرت */
-            --accent-color: #d97706; /* ذهبي هادئ */
-            --accent-hover: #b45309;
-            --text-main: #f8fafc; /* أبيض ناصع */
-            --text-muted: #94a3b8; /* رمادي للنصوص الثانوية */
+            --bg-color: #0b131f; /* كحلي داكن وفخم متناسق مع هوية الكتاب */
+            --card-bg: #152132; /* خلفية الكرت داخلية */
+            --accent-color: #e2a855; /* لون ذهبي هادئ ومريح */
+            --accent-hover: #c68e39;
+            --text-main: #f8fafc; 
+            --text-muted: #94a3b8; 
         }
 
         * {
@@ -36,9 +35,10 @@
             align-items: center;
             padding: 20px;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* خلفية جمالية خفيفة */
+        /* لمسة جمالية في الخلفية */
         body::before {
             content: "";
             position: absolute;
@@ -46,12 +46,12 @@
             left: -10%;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(217,119,6,0.15) 0%, rgba(0,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(226, 168, 85, 0.1) 0%, rgba(0,0,0,0) 70%);
             z-index: -1;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 550px;
             width: 100%;
             text-align: center;
             margin: auto;
@@ -59,43 +59,53 @@
 
         .card {
             background-color: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 45px 30px;
+            border-radius: 28px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(217, 119, 6, 0.1);
+            box-shadow: 0 30px 60px rgba(226, 168, 85, 0.08);
         }
 
-        .logo-icon {
-            font-size: 3rem;
+        .logo-area {
+            margin-bottom: 25px;
+        }
+
+        .logo-text {
+            font-size: 3.5rem;
+            font-weight: 700;
             color: var(--accent-color);
-            margin-bottom: 20px;
-            display: inline-block;
-            animation: float 4s ease-in-out infinite;
+            line-height: 1;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .badge {
+            background-color: rgba(226, 168, 85, 0.1);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 15px;
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 15px;
-            letter-spacing: -0.5px;
-            background: linear-gradient(to left, #fff, var(--text-muted));
+            background: linear-gradient(to left, #ffffff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         p.description {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
             line-height: 1.8;
             margin-bottom: 35px;
@@ -116,15 +126,16 @@
             font-size: 1.1rem;
             font-weight: 500;
             text-decoration: none;
-            border-radius: 14px;
-            transition: all 0.2s ease;
+            border-radius: 16px;
+            transition: all 0.25s ease;
             cursor: pointer;
         }
 
         .btn-primary {
             background-color: var(--accent-color);
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+            color: #0b131f;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(226, 168, 85, 0.25);
         }
 
         .btn-primary:hover {
@@ -135,35 +146,32 @@
         .btn-secondary {
             background-color: transparent;
             color: var(--text-main);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.08);
         }
 
         .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.03);
             border-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
         }
 
         footer {
             margin-top: 40px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        footer a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        /* متجاوب مع الشاشات الصغيرة */
+        /* متجاوب مع الجوال */
         @media (max-width: 480px) {
             .card {
-                padding: 30px 20px;
+                padding: 35px 20px;
             }
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
             p.description {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -172,31 +180,32 @@
 
     <div class="container">
         <div class="card">
-            <!-- أيقونة تعبيرية فخمة (يمكنك تغييرها لاحقاً بشعار) -->
-            <div class="logo-icon">🌿</div>
             
-            <h1>خطوتك الأولى نحو الوعي</h1>
+            <div class="logo-area">
+                <div class="logo-text">سِين</div>
+                <span class="badge">إصدار 1447 - 2026 م</span>
+            </div>
+            
+            <h1>دليلك العملي لترك العادة</h1>
             
             <p class="description">
-                الدليل العملي الشامل للتخلص من العادات السلبية وبناء حياة جديدة مليئة بالإنجاز والنقاء. كتاب مصمم بأسلوب علمي ووعي كامل ليرشدك خطوة بخطوة.
+                كتاب مخصص يساعدك من البداية لخطوة التغيير الحقيقي بأساليب عملية، عبادات، وحلول واقعية لاستعادة نقاء عقلك وحياتك.
             </p>
 
             <div class="btn-container">
-                <!-- زر القراءة المباشرة -->
-                <a href="book.pdf" target="_blank" class="btn btn-primary">
-                    📖 قراءة الكتيب مباشرة
+                <a href="seen-book.pdf" target="_blank" class="btn btn-primary">
+                    📖 قراءة الكتيب الآن
                 </a>
                 
-                <!-- زر التحميل المباشر -->
-                <a href="book.pdf" download class="btn btn-secondary">
-                    📥 تحميل الكتيب (PDF)
+                <a href="seen-book.pdf" download="كتاب_سين_لترك_العادة.pdf" class="btn btn-secondary">
+                    📥 تحميل الملف (PDF)
                 </a>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>الدال على الخير كفاعله | ساهم في نشر الموقع</p>
+        <p>الدال على الخير كفاعله | ساهم في نشر هذا العمل المبارك</p>
     </footer>
 
 </body>
