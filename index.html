@@ -10,13 +10,13 @@
     
     <style>
         :root {
-            --bg-color: #080f18; 
-            --card-bg: #111a28; 
-            --accent-color: #cca04b; 
-            --accent-hover: #b3893b;
-            --telegram-color: #1d719e;
+            --bg-color: #0b131f; 
+            --card-bg: #152132; 
+            --accent-color: #e2a855; 
+            --accent-hover: #c68e39;
+            --telegram-color: #24A1DE;
             --text-main: #f8fafc; 
-            --text-muted: #738499; 
+            --text-muted: #94a3b8; 
         }
 
         * {
@@ -34,40 +34,47 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* هالات خلفية ناعمة جداً مطابقة للصورة */
-        body::before {
-            content: "";
+        /* تأثير الخلفية المتحركة (هالات ضوئية هادئة) */
+        .bg-glow {
             position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
             z-index: -1;
-            background: radial-gradient(circle at 50% 15%, rgba(204, 160, 75, 0.03) 0%, transparent 60%);
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(226, 168, 85, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(226, 168, 85, 0.05) 0%, transparent 50%);
+            animation: moveGlow 15s infinite alternate linear;
+        }
+
+        @keyframes moveGlow {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
         }
 
         .container {
-            max-width: 460px;
+            max-width: 550px;
             width: 100%;
             text-align: center;
             z-index: 10;
         }
 
-        /* كرت التصميم مطابق تماماً لأبعاد وانحناءات كرت الصورة */
+        /* حركة دخول الكرت */
         .card {
             background-color: var(--card-bg);
-            padding: 45px 30px;
-            border-radius: 40px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 50px 35px;
+            border-radius: 32px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            transform: translateY(30px);
+            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
 
         @keyframes fadeInUp {
@@ -75,200 +82,26 @@
         }
 
         .logo-area {
-            margin-bottom: 35px;
-        }
-
-        .url-badge {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-            display: block;
+            margin-bottom: 25px;
+            animation: fadeIn 1.5s ease;
         }
 
         .logo-text {
-            font-size: 3.6rem;
+            font-size: 4rem;
             font-weight: 700;
             color: var(--accent-color);
-            line-height: 1.1;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            line-height: 1;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(226, 168, 85, 0.3);
+            margin-bottom: 5px;
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
         }
 
         .badge {
-            background-color: rgba(255, 255, 255, 0.04);
-            color: var(--accent-color);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            display: inline-block;
-        }
-
-        h1 {
-            font-size: 2.1rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: #ffffff;
-            letter-spacing: -0.5px;
-        }
-
-        p.description {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            line-height: 1.75;
-            margin-bottom: 35px;
-            padding: 0 5px;
-        }
-
-        .btn-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 35px;
-        }
-
-        /* أزرار رئيسية مطابقة تماماً لشكل وتوزيع الصورة المرفقة */
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 18px 24px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 20px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: #080f18;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(204, 160, 75, 0.15);
-        }
-
-        .btn-secondary {
-            background-color: rgba(255, 255, 255, 0.03);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.06);
-            transform: translateY(-2px);
-        }
-
-        /* قسم الخدمات المضاف أسفل الأزرار بنفس روح وهندسة التصميم */
-        .services-section {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 30px;
-            margin-top: 15px;
-            text-align: right;
-        }
-
-        .services-title {
-            font-size: 1.15rem;
-            color: var(--accent-color);
-            margin-bottom: 18px;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            background: rgba(204, 160, 75, 0.01);
-            border-color: rgba(204, 160, 75, 0.1);
-        }
-
-        .service-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .service-icon {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-        }
-
-        .service-header h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .service-desc {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        /* زر تليجرام أنيق ومتناسق مع هوية الكرت */
-        .btn-telegram {
-            background-color: rgba(29, 113, 158, 0.1);
-            color: #ffffff;
-            border: 1px solid rgba(29, 113, 158, 0.2);
-            font-size: 1rem;
-            padding: 14px 20px;
-            border-radius: 16px;
-        }
-
-        .btn-telegram:hover {
-            background-color: var(--telegram-color);
-            border-color: var(--telegram-color);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(29, 113, 158, 0.2);
-        }
-
-        footer {
-            margin-top: 35px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            letter-spacing: 0.3px;
-        }
-
-        /* استجابة وتوافق كامل لشاشات الجوال المتنوعة */
-        @media (max-width: 480px) {
-            .card { padding: 40px 22px; border-radius: 35px; }
-            .logo-text { font-size: 3.2rem; }
-            h1 { font-size: 1.8rem; }
-            p.description { font-size: 0.95rem; }
-            .btn { font-size: 1.1rem; padding: 16px 20px; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <div class="card">
-            
-            <div class="logo-area">
-                <span class="url-badge">ku5b.github.io</span>
-                <div class="logo-text">سِين</div>
-                <span class="badge">دليلك نحو النقاء | 1447 - 2026</span>
-            </div>
-            
-            <h1>خطوتك الأولى نحو الحرية</h1>
-            
-            <p class="description">
-                "سين" هو رفيقك في رحلة التغيير، كتاب مخصص ليساعدك بأساليب عملية كـ (السباحة بالماء البارد) والتقرب للّٰه لتستعيد طاقتك وحياتك من جديد.
-            </p>
-
-            <div class="btn-container">
-                <a href="1447%2
+            background-color: rgba(226, 168, 85, 0.1);
+            color: var(--
