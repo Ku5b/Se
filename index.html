@@ -3,102 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة سين | رحلة التعافي</title>
+    <title>بداية جديدة | كتيب التغيير</title>
+    <!-- استيراد خط Tajawal الفخم من جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --bg-color: #0f172a; /* كحلي داكن جداً وفخم */
+            --card-bg: #1e293b; /* خلفية الكرت */
+            --accent-color: #d97706; /* ذهبي هادئ */
+            --accent-hover: #b45309;
+            --text-main: #f8fafc; /* أبيض ناصع */
+            --text-muted: #94a3b8; /* رمادي للنصوص الثانوية */
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Tajawal', sans-serif;
         }
 
         body {
-            background-color: #080808; /* أسود مطفي حديث */
-            color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             min-height: 100vh;
-            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
             overflow-x: hidden;
         }
 
-        /* حاوية الموقع - أسلوب زجاجي مودرن */
-        .container {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 45px 35px;
-            border-radius: 24px;
-            text-align: center;
-            max-width: 500px;
-            width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-
-        /* تأثير توهج خلفي ناعم للمودرن */
-        .container::before {
+        /* خلفية جمالية خفيفة */
+        body::before {
             content: "";
             position: absolute;
             top: -10%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 40%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(217,119,6,0.15) 0%, rgba(0,0,0,0) 70%);
             z-index: -1;
-            pointer-events: none;
         }
 
-        /* شعار سين - خط عصري وبسيط */
-        .emblem {
-            font-size: 28px;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 4px;
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(217, 119, 6, 0.1);
+        }
+
+        .logo-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to left, #fff, var(--text-muted));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        h1 {
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 15px;
+        p.description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 35px;
         }
 
-        .main-desc {
-            color: #a0a0a0;
-            font-size: 14.5px;
-            line-height: 1.7;
-            margin-bottom: 30px;
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        /* زر تحميل مودرن - كبسولة ملساء */
         .btn {
-            display: inline-block;
-            background-color: #ffffff; /* أبيض ناصع للمودرن */
-            color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
             text-decoration: none;
-            padding: 14px 35px;
-            border-radius: 50px; /* كبسولة */
-            font-weight: 700;
-            font-size: 15px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-            margin-bottom: 15px;
-            width: 100%; /* يأخذ العرض كامل بشكل كبسة عصرية */
+            border-radius: 14px;
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
 
-        .btn:hover {
-            background-color: #d4af37; /* يتحول للذهبي بسلاسة */
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
         }
 
-        /* وصف الكتيب */
-        .pdf-note {
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* متجاوب مع الشاشات الصغيرة */
+        @media (max-width: 480px) {
+            .card {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            p.description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <!-- أيقونة تعبيرية فخمة (يمكنك تغييرها لاحقاً بشعار) -->
+            <div class="logo-icon">🌿</div>
+            
+            <h1>خطوتك الأولى نحو الحرية</h1>
+            
+            <p class="description">
+                الدليل العملي الشامل للتخلص من العادات السلبية وبناء حياة جديدة مليئة بالإنجاز والنقاء. كتاب مصمم بأسلوب علمي ووعي كامل ليرشدك خطوة بخطوة.
+            </p>
+
+            <div class="btn-container">
+                <!-- زر القراءة المباشرة -->
+                <a href="book.pdf" target="_blank" class="btn btn-primary">
+                    📖 قراءة الكتيب مباشرة
+                </a>
+                
+                <!-- زر التحميل المباشر -->
+                <a href="book.pdf" download class="btn btn-secondary">
+                    📥 تحميل الكتيب (PDF)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>الدال على الخير كفاعله | ساهم في نشر الموقع</p>
+    </footer>
+
+</body>
+</html>
