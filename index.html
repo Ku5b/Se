@@ -10,9 +10,9 @@
     
     <style>
         :root {
-            --bg-color: #0b131f; /* كحلي داكن وفخم متناسق مع هوية الكتاب */
-            --card-bg: #152132; /* خلفية الكرت داخلية */
-            --accent-color: #e2a855; /* لون ذهبي هادئ ومريح */
+            --bg-color: #0b131f; 
+            --card-bg: #152132; 
+            --accent-color: #e2a855; 
             --accent-hover: #c68e39;
             --text-main: #f8fafc; 
             --text-muted: #94a3b8; 
@@ -38,7 +38,6 @@
             position: relative;
         }
 
-        /* لمسة جمالية في الخلفية */
         body::before {
             content: "";
             position: absolute;
@@ -159,54 +158,3 @@
             margin-top: 40px;
             font-size: 0.85rem;
             color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* متجاوب مع الجوال */
-        @media (max-width: 480px) {
-            .card {
-                padding: 35px 20px;
-            }
-            h1 {
-                font-size: 1.7rem;
-            }
-            p.description {
-                font-size: 0.95rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <div class="card">
-            
-            <div class="logo-area">
-                <div class="logo-text">سِين</div>
-                <span class="badge">إصدار 1447 - 2026 م</span>
-            </div>
-            
-            <h1>دليلك العملي لترك العادة</h1>
-            
-            <p class="description">
-                كتاب مخصص يساعدك من البداية لخطوة التغيير الحقيقي بأساليب عملية، عبادات، وحلول واقعية لاستعادة نقاء عقلك وحياتك.
-            </p>
-
-            <div class="btn-container">
-                <a href="seen-book.pdf" target="_blank" class="btn btn-primary">
-                    📖 قراءة الكتيب الآن
-                </a>
-                
-                <a href="seen-book.pdf" download="كتاب_سين_لترك_العادة.pdf" class="btn btn-secondary">
-                    📥 تحميل الملف (PDF)
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>الدال على الخير كفاعله | ساهم في نشر هذا العمل المبارك</p>
-    </footer>
-
-</body>
-</html>
