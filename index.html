@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,6 @@
             --card-bg: #152132; 
             --accent-color: #e2a855; 
             --accent-hover: #c68e39;
-            --telegram-color: #24A1DE;
             --text-main: #f8fafc; 
             --text-muted: #94a3b8; 
         }
@@ -34,8 +33,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
-            overflow-x: hidden;
+            padding: 20px;
+            overflow: hidden; /* لمنع ظهور شريط التمرير أثناء الحركة */
             position: relative;
         }
 
@@ -78,7 +77,10 @@
         }
 
         @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .logo-area {
@@ -104,4 +106,138 @@
 
         .badge {
             background-color: rgba(226, 168, 85, 0.1);
-            color: var(--
+            color: var(--accent-color);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 2.2s ease;
+        }
+
+        p.description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 35px;
+            animation: fadeIn 2.5s ease;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: fadeIn 3s ease;
+        }
+
+        /* تأثيرات الأزرار الحركية */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 30px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 18px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #0b131f;
+            box-shadow: 0 10px 25px rgba(226, 168, 85, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 35px rgba(226, 168, 85, 0.3);
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            opacity: 0;
+            animation: fadeIn 4s forwards;
+        }
+
+        /* تخصيص الجوال */
+        @media (max-width: 480px) {
+            body { overflow-y: auto; justify-content: flex-start; padding-top: 40px; }
+            .card { padding: 40px 25px; width: 95%; }
+            .logo-text { font-size: 3.2rem; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <div class="container">
+        <div class="card">
+            
+            <div class="logo-area">
+                <div class="logo-text">سِين</div>
+                <span class="badge">دليلك نحو النقاء | 1447 - 2026</span>
+            </div>
+            
+            <h1>خطوتك الأولى نحو الوعي</h1>
+            
+            <p class="description">
+                "سين" هو رفيقك في رحلة التغيير، كتاب مخصص ليساعدك بأساليب عملية كـ (السباحة بالماء البارد) والتقرب للّٰه لتستعيد طاقتك وحياتك من جديد.
+            </p>
+
+            <div class="btn-container">
+                <a href="1447%20-%202026.pdf" target="_blank" class="btn btn-primary">
+                    <span>📖</span> قراءة الكتاب الآن
+                </a>
+                
+                <a href="1447%20-%202026.pdf" download="1447 - 2026.pdf" class="btn btn-secondary">
+                    <span>📥</span> تحميل نسخة الـ PDF
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>مُبادرة مباركة | الدال على الخير كفاعله</p>
+    </footer>
+
+</body>
+</html>
+
+
